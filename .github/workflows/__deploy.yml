@@ -74,7 +74,8 @@ jobs:
     # Always run so the comment is composed for the workflow summary
     if: ${{ always() && inputs.comment }}
     uses: ./.github/workflows/__job_messages.yml
-    secrets: inherit
+    secrets:
+      JF_BOT_TOKEN: ${{ secrets.JF_BOT_TOKEN }}
     needs:
       - cf-pages
     with:
